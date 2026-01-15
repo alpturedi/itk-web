@@ -107,11 +107,16 @@ export default function Home() {
     // const address = "Sanayi, Ömer Türkçakal Blv. No:28, 41040 İzmit/Kocaeli";
     const isAndroid = /Android/i.test(navigator.userAgent);
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const label = encodeURIComponent("İzmit Tenis Kulübü");
 
     if (isAndroid) {
-      window.open(`geo:40.746913800956,29.94437850221664`, "_blank");
+      window.open(`geo:40.746913800956,29.94437850221664?q=${label}`, "_blank");
     } else if (isIOS) {
-      window.open(`maps://?q=40.746913800956,29.94437850221664`, "_blank");
+      window.open(
+        // `maps://?q=${label}&ll=40.746913800956,29.94437850221664`,
+        `comgooglemaps://?daddr=${label}&center=40.746913800956,29.94437850221664&directionsmode=driving`,
+        "_blank"
+      );
     } else {
       window.open(`https://maps.app.goo.gl/zubEBncccAtgvSzVA`, "_blank");
     }
@@ -120,7 +125,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
           <h1 className="text-2xl font-bold text-primary">İTK</h1>
 
@@ -180,7 +185,7 @@ export default function Home() {
             href="https://instagram.com/izmitteniskulubu"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all"
+            className="inline-flex items-center gap-3 px-6 py-3 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all"
           >
             <Instagram className="h-6 w-6" />
             <span className="font-medium">@izmitteniskulubu</span>
@@ -196,7 +201,7 @@ export default function Home() {
           <Map />
 
           <div className="flex items-start gap-3 mb-4 text-muted-foreground">
-            <MapPin className="h-5 w-5 mt-1 flex-shrink-0" />
+            <MapPin className="h-5 w-5 mt-1 shrink-0" />
             <p>Sanayi Mah., Ömer Türkçakal Blv. No:28, 41040 İzmit/Kocaeli</p>
           </div>
 
