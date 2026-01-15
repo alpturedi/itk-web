@@ -104,21 +104,16 @@ export default function Home() {
   };
 
   const openGoogleMaps = () => {
-    const address = "Sanayi, Ömer Türkçakal Blv. No:28, 41040 İzmit/Kocaeli";
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    // const address = "Sanayi, Ömer Türkçakal Blv. No:28, 41040 İzmit/Kocaeli";
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-    if (isMobile) {
-      window.open(
-        `https://maps.google.com/?q=${encodeURIComponent(address)}`,
-        "_blank"
-      );
+    if (isAndroid) {
+      window.open(`geo:40.746913800956,29.94437850221664`, "_blank");
+    } else if (isIOS) {
+      window.open(`maps://?q=40.746913800956,29.94437850221664`, "_blank");
     } else {
-      window.open(
-        `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-          address
-        )}`,
-        "_blank"
-      );
+      window.open(`https://maps.app.goo.gl/zubEBncccAtgvSzVA`, "_blank");
     }
   };
 
