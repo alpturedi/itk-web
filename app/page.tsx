@@ -110,7 +110,10 @@ export default function Home() {
     const label = encodeURIComponent("İzmit Tenis Kulübü");
 
     if (isAndroid) {
-      window.open(`geo:40.746913800956,29.94437850221664?q=${label}`, "_blank");
+      window.open(
+        `google.navigation:q=40.746913800956,29.94437850221664(${label})`,
+        "_blank"
+      );
     } else if (isIOS) {
       window.open(
         // `maps://?q=${label}&ll=40.746913800956,29.94437850221664`,
@@ -118,7 +121,11 @@ export default function Home() {
         "_blank"
       );
     } else {
-      window.open(`https://maps.app.goo.gl/zubEBncccAtgvSzVA`, "_blank");
+      // window.open(`https://maps.app.goo.gl/zubEBncccAtgvSzVA`, "_blank");
+      window.open(
+        `https://www.google.com/maps/dir/?api=1&destination=${label}&destination_place_id=zubEBncccAtgvSzVA`,
+        "_blank"
+      );
     }
   };
 
