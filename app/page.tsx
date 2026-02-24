@@ -27,6 +27,7 @@ const translations = {
     success: "Mesajınız başarıyla gönderildi!",
     error: "Bir hata oluştu. Lütfen tekrar deneyin.",
     followUs: "Bizi Takip Edin",
+    bulletin: "Bülteni Oku",
   },
   en: {
     title: "İzmit Tennis Club",
@@ -46,6 +47,7 @@ const translations = {
     success: "Your message has been sent successfully!",
     error: "An error occurred. Please try again.",
     followUs: "Follow Us",
+    bulletin: "Read the Bulletin",
   },
 };
 
@@ -65,7 +67,7 @@ export default function Home() {
 
   useEffect(() => {
     const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: dark)",
     ).matches;
     setTheme(prefersDark ? "dark" : "light");
   }, []);
@@ -112,19 +114,19 @@ export default function Home() {
     if (isAndroid) {
       window.open(
         `google.navigation:q=40.746913800956,29.94437850221664(${label})`,
-        "_blank"
+        "_blank",
       );
     } else if (isIOS) {
       window.open(
         // `maps://?q=${label}&ll=40.746913800956,29.94437850221664`,
         `comgooglemaps://?daddr=${label}&center=40.746913800956,29.94437850221664&directionsmode=driving`,
-        "_blank"
+        "_blank",
       );
     } else {
       // window.open(`https://maps.app.goo.gl/zubEBncccAtgvSzVA`, "_blank");
       window.open(
         `https://www.google.com/maps/dir/?api=1&destination=${label}&destination_place_id=zubEBncccAtgvSzVA`,
-        "_blank"
+        "_blank",
       );
     }
   };
@@ -178,9 +180,14 @@ export default function Home() {
       <section className="container mx-auto px-4 py-20">
         <div className="max-w-3xl mx-auto">
           <h3 className="text-3xl font-bold mb-6">{t.about}</h3>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
             {t.aboutText}
           </p>
+          <a href="/bulletin/index.html">
+            <Button size="lg" className="w-full sm:w-auto">
+              {t.bulletin}
+            </Button>
+          </a>
         </div>
       </section>
 
