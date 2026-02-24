@@ -183,7 +183,7 @@ export default function Home() {
           <p className="text-lg text-muted-foreground leading-relaxed mb-6">
             {t.aboutText}
           </p>
-          <a href="/bulletin/index.html">
+          <a href="/bulletin/index.html#p=2">
             <Button size="lg" className="w-full sm:w-auto">
               {t.bulletin}
             </Button>

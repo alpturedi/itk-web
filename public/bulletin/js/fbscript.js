@@ -38,7 +38,7 @@ var callback = function (e){
     if(!e.success || !e.ref){    	
     //	alert("No Flash Supported");
     	if('flipbuilder_hasMobile'=='flipbuilder_'+'hasMobile'){
-    		delayToShowVersion("mobile/index.html")
+    		delayToShowVersion("mobile/index.html#p=2")
     		// window.location = "mobile/index.html";
     	}else if(hasBasicHtml){
     		
@@ -140,7 +140,7 @@ var hasBasicHtmlVersion=true;
 var callback = function (e){ 
     //Only execute if SWFObject embed was successful
   if(!e.success || !e.ref){ //	alert("No Flash Supported");
-		document.write("<div style='font-family:arial;font-size:14px;padding:50px;background-color:#e5e5e5;color:#666666;position:absolute;width:500px; left:50%; top:50%; transform:translate(-50%,-50%);'><h2 style='color:#333333;margin-top:0;font-size:1.8em'>Sorry , need flash player. </h2><a style='color:#1155cc;' href='http://www.adobe.com/go/getflashplayer'>Get Adobe Flash Player<\/a> it's possible to <a id='linkSEO' style='color:#1155cc;line-height:1.6em;' href='files/basic-html/index.html'>view a simplified version of the book on any device</a>, or you can view the mobile version <a href='mobile/index.html' style='color:#1155cc'> here </a></div>" ); 
+		document.write("<div style='font-family:arial;font-size:14px;padding:50px;background-color:#e5e5e5;color:#666666;position:absolute;width:500px; left:50%; top:50%; transform:translate(-50%,-50%);'><h2 style='color:#333333;margin-top:0;font-size:1.8em'>Sorry , need flash player. </h2><a style='color:#1155cc;' href='http://www.adobe.com/go/getflashplayer'>Get Adobe Flash Player<\/a> it's possible to <a id='linkSEO' style='color:#1155cc;line-height:1.6em;' href='files/basic-html/index.html'>view a simplified version of the book on any device</a>, or you can view the mobile version <a href='mobile/index.html#p=2' style='color:#1155cc'> here </a></div>" ); 
     return false; 
   }  
 };
@@ -166,7 +166,7 @@ function detectAndGoVersion(loadType){
 	 		if(pageIndex!=-1){
 	 			window.location = "mobile/index.html#p="+pageIndex;
 	 		}else{
-	 			window.location = "mobile/index.html"+(window.location.hash?window.location.hash:'');
+	 			window.location = "mobile/index.html#p=2"+(window.location.hash?window.location.hash:'');
 	 			//window.location = "mobile/index.html";
 	 		}
 		}else if(hasBasicHtmlVersion){
